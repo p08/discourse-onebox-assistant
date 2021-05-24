@@ -108,9 +108,9 @@ after_initialize do
 
       def preview(url)
         base_query=SiteSetting.onebox_assistant_api_base_query + url
-        query = base_query + SiteSetting.onebox_assistant_api_options
         key = SiteSetting.onebox_assistant_api_key
-        self.class.get(query, headers: {'x-api-key' => key})
+        query = base_query + SiteSetting.onebox_assistant_api_options + key
+        self.class.get(query)
       end
     end
 
